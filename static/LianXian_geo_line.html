@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/china.js"></script>
+
+</head>
+<body>
+    <div id="c8ed344588864c13bde50ac1b08f3d7b" class="chart-container" style="width:900px; height:500px;"></div>
+    <script>
+        var chart_c8ed344588864c13bde50ac1b08f3d7b = echarts.init(
+            document.getElementById('c8ed344588864c13bde50ac1b08f3d7b'), 'white', {renderer: 'canvas'});
+        var option_c8ed344588864c13bde50ac1b08f3d7b = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "color": [
+        "white",
+        "#c23531",
+        "#2f4554",
+        "#61a0a8",
+        "#d48265",
+        "#749f83",
+        "#ca8622",
+        "#bda29a",
+        "#6e7074",
+        "#546570",
+        "#c4ccd3",
+        "#f05b72",
+        "#ef5b9c",
+        "#f47920",
+        "#905a3d",
+        "#fab27b",
+        "#2a5caa",
+        "#444693",
+        "#726930",
+        "#b2d235",
+        "#6d8346",
+        "#ac6767",
+        "#1d953f",
+        "#6950a1",
+        "#918597"
+    ],
+    "series": [
+        {
+            "type": "effectScatter",
+            "coordinateSystem": "geo",
+            "showEffectOn": "render",
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "symbolSize": 12,
+            "data": [
+                {
+                    "name": "\u745e\u91d1",
+                    "value": [
+                        116.01,
+                        25.53,
+                        1
+                    ]
+                },
+                {
+                    "name": "\u9ece\u5e73",
+                    "value": [
+                        109.13,
+                        26.23,
+                        1
+                    ]
+                },
+                {
+                    "name": "\u9075\u4e49",
+                    "value": [
+                        106.9,
+                        27.7,
+                        1
+                    ]
+                },
+                {
+                    "name": "\u768e\u5e73\u6e21",
+                    "value": [
+                        102.47,
+                        25.55,
+                        1
+                    ]
+                },
+                {
+                    "name": "\u5b89\u987a\u573a(\u4eca\u77f3\u68c9\u53bf)",
+                    "value": [
+                        102.36,
+                        29.23,
+                        1
+                    ]
+                },
+                {
+                    "name": "\u61cb\u529f",
+                    "value": [
+                        102.36,
+                        31.0,
+                        10
+                    ]
+                },
+                {
+                    "name": "\u814a\u5b50\u53e3",
+                    "value": [
+                        103.22,
+                        34.06,
+                        1
+                    ]
+                },
+                {
+                    "name": "\u5434\u8d77\u9547",
+                    "value": [
+                        108.18,
+                        36.93,
+                        1
+                    ]
+                }
+            ],
+            "label": {
+                "show": false,
+                "position": "top",
+                "margin": 8
+            }
+        },
+        {
+            "type": "lines",
+            "name": "\u4e2d\u592e\u7ea2\u519b\u957f\u5f81\u8def\u7ebf",
+            "coordinateSystem": "geo",
+            "zlevel": 3,
+            "progressive": 400,
+            "progressiveThreshold": 3000,
+            "effect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4,
+                "color": "white",
+                "symbol": "arrow",
+                "symbolSize": 6
+            },
+            "symbol": [
+                "none",
+                "arrow"
+            ],
+            "polyline": false,
+            "large": false,
+            "largeThreshold": 2000,
+            "symbolSize": 12,
+            "data": [
+                {
+                    "name": "\u745e\u91d1->\u9ece\u5e73",
+                    "coords": [
+                        [
+                            116.01,
+                            25.53
+                        ],
+                        [
+                            109.13,
+                            26.23
+                        ]
+                    ]
+                },
+                {
+                    "name": "\u9ece\u5e73->\u9075\u4e49",
+                    "coords": [
+                        [
+                            109.13,
+                            26.23
+                        ],
+                        [
+                            106.9,
+                            27.7
+                        ]
+                    ]
+                },
+                {
+                    "name": "\u9075\u4e49->\u768e\u5e73\u6e21",
+                    "coords": [
+                        [
+                            106.9,
+                            27.7
+                        ],
+                        [
+                            102.47,
+                            25.55
+                        ]
+                    ]
+                },
+                {
+                    "name": "\u768e\u5e73\u6e21->\u5b89\u987a\u573a\uff08\u4eca\u77f3\u68c9\u53bf\uff09",
+                    "coords": [
+                        [
+                            102.47,
+                            25.55
+                        ],
+                        [
+                            102.36,
+                            29.23
+                        ]
+                    ]
+                },
+                {
+                    "name": "\u5b89\u987a\u573a\uff08\u4eca\u77f3\u68c9\u53bf\uff09->\u61cb\u529f",
+                    "coords": [
+                        [
+                            102.36,
+                            29.23
+                        ],
+                        [
+                            102.36,
+                            31.0
+                        ]
+                    ]
+                },
+                {
+                    "name": "\u61cb\u529f->\u814a\u5b50\u53e3",
+                    "coords": [
+                        [
+                            102.36,
+                            31.0
+                        ],
+                        [
+                            103.22,
+                            34.06
+                        ]
+                    ]
+                },
+                {
+                    "name": "\u814a\u5b50\u53e3->\u5434\u8d77\u9547",
+                    "coords": [
+                        [
+                            103.22,
+                            34.06
+                        ],
+                        [
+                            108.18,
+                            36.93
+                        ]
+                    ]
+                }
+            ],
+            "lineStyle": {
+                "show": true,
+                "width": 1,
+                "opacity": 1,
+                "curveness": 0.2,
+                "type": "solid"
+            },
+            "label": {
+                "show": false,
+                "position": "top",
+                "margin": 8
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "",
+                "\u4e2d\u592e\u7ea2\u519b\u957f\u5f81\u8def\u7ebf"
+            ],
+            "selected": {
+                "": true,
+                "\u4e2d\u592e\u7ea2\u519b\u957f\u5f81\u8def\u7ebf": true
+            },
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "formatter": function (params) {        return params.name + ' : ' + params.value[2];    },
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "Geo-Line",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ],
+    "geo": {
+        "map": "china",
+        "roam": true,
+        "aspectScale": 0.75,
+        "nameProperty": "name",
+        "selectedMode": false,
+        "itemStyle": {
+            "color": "grey",
+            "borderColor": "black"
+        },
+        "emphasis": {}
+    }
+};
+        chart_c8ed344588864c13bde50ac1b08f3d7b.setOption(option_c8ed344588864c13bde50ac1b08f3d7b);
+    </script>
+</body>
+</html>

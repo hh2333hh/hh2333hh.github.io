@@ -1,0 +1,5 @@
+<nav class="blog-subnav" aria-label="博客分类导航">
+  <a href="{{ "posts/" | relURL }}"{{ if and (eq .Kind "section") (eq .Section "posts") }} aria-current="page"{{ end }}>全部文章</a>
+  <a href="{{ "archives/" | relURL }}"{{ if eq .Layout "archives" }} aria-current="page"{{ end }}>时间归档</a>
+  <a href="{{ "tags/" | relURL }}"{{ if in (slice "taxonomy" "term") .Kind }} aria-current="page"{{ end }}>标签索引</a>
+</nav>

@@ -1,0 +1,5 @@
+{{ define "main" }}
+<header class="page-header"><p class="eyebrow">ALONG THE WAY</p><h1>{{ .Title }}</h1><p class="page-description">{{ .Description }}</p></header>
+{{ partial "blog-subnav.html" . }}
+{{ range (where .Site.RegularPages "Type" "posts").ByDate.Reverse.GroupByDate "2006" }}<section class="archive-year"><h2>{{ .Key }}<span>{{ len .Pages }} 篇</span></h2><div class="archive-list">{{ range .Pages }}<a class="archive-row" href="{{ .RelPermalink }}"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01.02" }}</time><span>{{ .Title }}</span>{{ partial "icon.html" "arrow" }}</a>{{ end }}</div></section>{{ else }}<p class="empty-state">写下第一篇文章，就从今天开始。</p>{{ end }}
+{{ end }}

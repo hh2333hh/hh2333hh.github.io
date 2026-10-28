@@ -1,0 +1,13 @@
+{{ define "main" }}
+{{ $isProject := eq .Type "projects" }}
+<div class="breadcrumb"><a class="back-link" href="{{ if $isProject }}{{ "projects/" | relURL }}{{ else }}{{ "posts/" | relURL }}{{ end }}">{{ partial "icon.html" "back" }} {{ if $isProject }}返回作品{{ else }}返回全部文章{{ end }}</a></div>
+<article>
+  <header class="article-header"><p class="eyebrow">{{ if $isProject }}PROJECT NOTES{{ else }}THE JOURNAL{{ end }}</p><h1 class="article-title">{{ .Title }}</h1>{{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}<div class="article-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 年 01 月 02 日" }}</time><span>{{ .ReadingTime }} 分钟阅读</span>{{ if .Draft }}<span class="sample-label">草稿</span>{{ end }}{{ range .GetTerms "tags" }}<a class="tag-pill" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</div></header>
+  <div class="article-layout">
+    <div class="article-body prose">{{ if .Params.sample }}<p class="sample-note">这是一篇用于预览的示例文章，之后可以替换成你自己的内容。</p>{{ end }}{{ .Content }}</div>
+    {{ if .Fragments.Headings }}<aside class="article-toc" aria-label="文章目录"><p class="toc-title">本篇目录</p>{{ .TableOfContents }}</aside>{{ end }}
+  </div>
+  <footer class="article-footer"><p>谢谢你读到这里。</p><a class="back-link" href="{{ if $isProject }}{{ "projects/" | relURL }}{{ else }}{{ "posts/" | relURL }}{{ end }}">{{ partial "icon.html" "back" }} {{ if $isProject }}继续看看其他作品{{ else }}继续阅读其他文章{{ end }}</a></footer>
+  {{ if not $isProject }}<nav class="post-navigation" aria-label="相邻文章">{{ with .PrevInSection }}<a href="{{ .RelPermalink }}"><span>更早一篇</span><strong>{{ .Title }}</strong></a>{{ end }}{{ with .NextInSection }}<a href="{{ .RelPermalink }}"><span>更新一篇</span><strong>{{ .Title }}</strong></a>{{ end }}</nav>{{ end }}
+</article>
+{{ end }}

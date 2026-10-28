@@ -1,0 +1,48 @@
+baseURL = 'https://hh2333hh.github.io/'
+locale = 'zh-CN'
+defaultContentLanguage = 'zh'
+title = '树木与森林'
+timeZone = 'Asia/Shanghai'
+hasCJKLanguage = true
+enableRobotsTXT = true
+summaryLength = 100
+
+[params]
+  description = '把值得记下的想法，慢慢写下来。'
+  tagline = '记录，思考，以及一些日常。'
+  author = ''
+  homeTitle = '表达即思考，'
+  homeSubtitle = '写作即研究。'
+  homeDescription = '可以打赌,许多人会看到这些茁壮而挺拔的树木,并加以利用, 但很少有人能够真正看到这片森林......'
+
+[pagination]
+  pagerSize = 8
+
+[permalinks]
+  posts = '/posts/:slugorcontentbasename/'
+
+[taxonomies]
+  tag = 'tags'
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.highlight]
+  noClasses = false
+  lineNos = false
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML']
+  taxonomy = ['HTML']
+  term = ['HTML']
+
+[sitemap]
+  changeFreq = 'weekly'
+
+[privacy.youtube]
+  privacyEnhanced = true

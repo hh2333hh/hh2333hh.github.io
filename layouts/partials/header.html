@@ -1,0 +1,20 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="{{ "" | relURL }}" aria-label="{{ .Site.Title }}首页">
+      <span class="brand-mark">{{ partial "icon.html" "leaf" }}</span>
+      <span class="brand-name">{{ .Site.Title }}</span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="{{ "" | relURL }}"{{ if .IsHome }} class="is-active" aria-current="page"{{ end }}>首页</a>
+      <a href="{{ "posts/" | relURL }}"{{ if or (eq .Section "posts") (eq .Layout "archives") (in (slice "taxonomy" "term") .Kind) }} class="is-active" aria-current="{{ if and (eq .Kind "section") (eq .Section "posts") }}page{{ else }}true{{ end }}"{{ end }}>博客</a>
+      <a href="{{ "projects/" | relURL }}"{{ if eq .Section "projects" }} class="is-active" aria-current="{{ if eq .Kind "section" }}page{{ else }}true{{ end }}"{{ end }}>作品</a>
+      <a href="{{ "about/" | relURL }}"{{ if eq .Layout "about" }} class="is-active" aria-current="page"{{ end }}>关于我</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" type="button" data-theme-toggle aria-label="切换深浅色模式" title="切换深浅色模式">
+        <span class="theme-icon-moon">{{ partial "icon.html" "moon" }}</span>
+        <span class="theme-icon-sun">{{ partial "icon.html" "sun" }}</span>
+      </button>
+    </div>
+  </div>
+</header>

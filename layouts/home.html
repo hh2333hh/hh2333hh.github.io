@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="home-hero" aria-labelledby="home-title">
+  <div class="hero-copy">
+    <p class="eyebrow">NOTES, THOUGHTS & THINGS</p>
+    <h1 id="home-title">{{ .Site.Params.homeTitle }}<br>{{ .Site.Params.homeSubtitle }}</h1>
+    <p class="hero-description">{{ .Site.Params.homeDescription }}</p>
+    <div class="hero-actions"><a class="button button-primary" href="{{ "posts/" | relURL }}">读一些文字 {{ partial "icon.html" "arrow" }}</a><a class="button button-secondary" href="{{ "about/" | relURL }}">关于这个小站</a></div>
+  </div>
+  <div class="hero-art">{{ partial "notebook.html" . }}<span class="hero-caption">一处留给文字与想法的地方</span></div>
+</section>
+<section class="home-section" aria-labelledby="latest-title">
+  <div class="section-heading"><div><p class="section-kicker">LATEST WRITING</p><h2 id="latest-title">最近的文字</h2></div><a class="section-link" href="{{ "posts/" | relURL }}">全部文章 {{ partial "icon.html" "arrow" }}</a></div>
+  <div class="post-list">{{ range first 3 (where .Site.RegularPages "Type" "posts").ByDate.Reverse }}{{ partial "post-row.html" . }}{{ else }}<p class="empty-state">第一篇文章，正在路上。</p>{{ end }}</div>
+</section>
+<section class="home-section" aria-labelledby="featured-project-title">
+  <div class="section-heading"><div><p class="section-kicker">MADE WITH CARE</p><h2 id="featured-project-title">正在做的事</h2></div><a class="section-link" href="{{ "projects/" | relURL }}">看看作品 {{ partial "icon.html" "arrow" }}</a></div>
+  {{ range first 1 (where .Site.RegularPages "Type" "projects").ByDate.Reverse }}
+  <article class="featured-project project-preview">
+    <div class="project-preview-art" aria-hidden="true">{{ partial "notebook.html" . }}</div>
+    <div class="project-preview-copy"><p class="project-type">{{ .Params.projectType }}</p><h3 class="project-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p class="project-description">{{ .Description }}</p><a class="project-link" href="{{ .RelPermalink }}">了解这个作品 {{ partial "icon.html" "arrow" }}</a></div>
+  </article>
+  {{ end }}
+</section>
+{{ end }}

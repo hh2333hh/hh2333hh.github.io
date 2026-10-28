@@ -1,0 +1,25 @@
+{{ define "main" }}
+<article class="about-page">
+  <header class="about-header">
+    <p class="eyebrow">A LITTLE ABOUT ME</p>
+    <div class="about-heading">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description | default .Params.shortBio }}<p class="about-lede">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+  <div class="about-layout">
+    <aside class="about-profile" aria-label="个人简介">
+      {{ with .Params.displayName }}
+      <div class="about-monogram" aria-hidden="true"><span>{{ substr . 0 1 }}</span>{{ partial "icon.html" "leaf" }}</div>
+      <p class="about-name">{{ . }}</p>
+      {{ end }}
+      {{ with .Params.focus }}<p class="about-focus"><span>关注的方向</span>{{ . }}</p>{{ end }}
+      <nav class="about-profile-links" aria-label="继续了解">
+        <a href="{{ "posts/" | relURL }}">读我的文字 {{ partial "icon.html" "arrow" }}</a>
+        <a href="{{ "projects/" | relURL }}">看看作品 {{ partial "icon.html" "arrow" }}</a>
+      </nav>
+    </aside>
+    <div class="about-copy prose">{{ .Content }}</div>
+  </div>
+</article>
+{{ end }}

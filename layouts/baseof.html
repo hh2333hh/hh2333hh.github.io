@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .IsHome }}{{ .Site.Title }} · {{ .Site.Params.tagline }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+    {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+    <meta name="color-scheme" content="light dark">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta property="og:title" content="{{ .Title | default .Site.Title }}">
+    <meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:type" content="{{ if eq .Type "posts" }}article{{ else }}website{{ end }}">
+    <link rel="canonical" href="{{ .Permalink }}">
+    <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+    {{ with .Site.Home.OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }} RSS" href="{{ .RelPermalink }}">{{ end }}
+    <script>try{document.documentElement.dataset.theme=localStorage.getItem('suiji-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme='light'}</script>
+    {{ with resources.Get "css/main.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">{{ end }}
+    {{ with resources.Get "js/main.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>{{ end }}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    {{ partial "header.html" . }}
+    <main id="main" class="site-shell" tabindex="-1">{{ block "main" . }}{{ end }}</main>
+    {{ partial "footer.html" . }}
+  </body>
+</html>

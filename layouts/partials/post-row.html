@@ -1,0 +1,9 @@
+<article class="post-row">
+  <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}"><span class="date-day">{{ .Date.Format "02" }}</span><span class="date-month">{{ .Date.Format "2006.01" }}</span></time>
+  <div class="post-main">
+    <div class="post-meta"><span>{{ .ReadingTime }} 分钟阅读</span>{{ if .Params.sample }}<span class="sample-label">示例文章</span>{{ end }}{{ if .Draft }}<span class="sample-label">草稿</span>{{ end }}</div>
+    <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <p class="post-summary">{{ .Description | default (.Summary | plainify | htmlUnescape | truncate 110) }}</p>
+    <div class="post-tags">{{ range .GetTerms "tags" }}<a class="tag-pill" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}<a class="read-more" href="{{ .RelPermalink }}" aria-label="阅读全文：{{ .Title }}">{{ partial "icon.html" "arrow" }}</a></div>
+  </div>
+</article>

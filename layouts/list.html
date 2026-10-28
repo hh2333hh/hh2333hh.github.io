@@ -1,0 +1,13 @@
+{{ define "main" }}
+<header class="page-header"><p class="eyebrow">{{ if eq .Section "projects" }}SELECTED WORK{{ else }}THE JOURNAL{{ end }}</p><h1>{{ .Title }}</h1><p class="page-description">{{ .Description }}</p></header>
+{{ if eq .Section "projects" }}
+<div class="project-grid">{{ range .RegularPages.ByDate.Reverse }}<article class="project-card"><div class="project-art" aria-hidden="true">{{ partial "notebook.html" . }}</div><div class="project-card-copy"><p class="project-type">{{ .Params.projectType }}</p><h2 class="project-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2><p class="project-description">{{ .Description }}</p><a class="project-link" href="{{ .RelPermalink }}">查看作品 {{ partial "icon.html" "arrow" }}</a></div></article>{{ else }}<p class="empty-state">第一个作品，正在酝酿。</p>{{ end }}</div>
+<p class="empty-state">更多作品，慢慢补上。</p>
+{{ else }}
+{{ partial "blog-subnav.html" . }}
+<div class="home-layout">
+  <aside class="sidebar" aria-label="博客索引"><p class="sidebar-label">关于文字</p><p class="sidebar-copy">把值得记下的想法，<br>慢慢写下来。</p><p class="sidebar-label">从一个话题开始</p><div class="tag-cloud">{{ range .Site.Taxonomies.tags.Alphabetical }}<a class="topic-link" href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }} <span>{{ .Count }}</span></a>{{ end }}</div><a class="topic-link" href="{{ "index.xml" | relURL }}">订阅 RSS {{ partial "icon.html" "rss" }}</a></aside>
+  <section aria-label="全部文章"><div class="feed-heading"><span class="section-kicker">ALL WRITING</span><span class="feed-count">共 {{ len .RegularPages }} 篇文章</span></div>{{ $paginator := .Paginate .RegularPages.ByDate.Reverse }}<div class="post-list">{{ range $paginator.Pages }}{{ partial "post-row.html" . }}{{ else }}<p class="empty-state">第一篇文章，正在路上。</p>{{ end }}</div>{{ partial "pagination.html" $paginator }}</section>
+</div>
+{{ end }}
+{{ end }}

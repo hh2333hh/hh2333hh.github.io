@@ -1,0 +1,5 @@
+{{ define "main" }}
+<header class="page-header"><p class="eyebrow">FILED UNDER</p><h1>{{ .Title }}</h1><p class="page-description">关于这个话题的 {{ len .RegularPages }} 篇文字。</p></header>
+{{ partial "blog-subnav.html" . }}
+{{ $paginator := .Paginate .RegularPages.ByDate.Reverse }}<div class="post-list">{{ range $paginator.Pages }}{{ partial "post-row.html" . }}{{ end }}</div>{{ partial "pagination.html" $paginator }}
+{{ end }}

@@ -1,0 +1,5 @@
+{{ define "main" }}
+<header class="page-header"><p class="eyebrow">FIND YOUR THREAD</p><h1>标签</h1><p class="page-description">从一个词开始，找到感兴趣的文字。</p></header>
+{{ partial "blog-subnav.html" . }}
+<div class="taxonomy-grid">{{ range .Data.Terms.Alphabetical }}<a class="taxonomy-item" href="{{ .Page.RelPermalink }}"><span class="term-name">{{ .Page.LinkTitle }}</span><span class="term-count">{{ .Count }} 篇 {{ partial "icon.html" "arrow" }}</span></a>{{ else }}<p class="empty-state">添加文章标签后，就能在这里找到它们。</p>{{ end }}</div>
+{{ end }}
